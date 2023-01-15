@@ -31,7 +31,8 @@ class Game:
         #Key Manager
         if self.keys[pygame.K_ESCAPE]:
 
-            self.finish = True
+            print(pygame.K_a,  " ", pygame.K_d)
+            #self.finish = True
 
         #Event Manager
         for event in self.events:
@@ -46,7 +47,11 @@ class Game:
             sys.exit()       
 
         #Printing Object
+        self.cleanScreen()
         self.myPlayer.print(self.screen)
+
+        #Moving Objects
+        self.myPlayer.move(self.keys)
 
         #Updating Game
         pygame.display.update()
@@ -56,3 +61,7 @@ class Game:
     def isFinish(self):
 
         return self.finish
+    
+    def cleanScreen(self):
+
+        self.screen.fill((0, 0, 0))

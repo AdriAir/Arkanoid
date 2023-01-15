@@ -6,3 +6,6 @@
 
 **v0.11:**
     - Orientación a objetos implementada en mayor parte
+
+**v0.2:**
+    - El jugador ya puede moverse lateralmente con "a" y "d"
