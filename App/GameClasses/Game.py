@@ -1,5 +1,6 @@
 import sys
 from GameClasses.Player import Player
+from GameClasses.Ball import Ball
 import pygame
 
 class Game:
@@ -12,14 +13,15 @@ class Game:
         self.height = 800
         self.width = 800
         self.finish = False
-        self.frame_rate = 60
+        self.frame_rate = 120
         self.keys = None
         self.events = None
         self.screen = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption("Arkanoid")
         
         #Objects
-        self.myPlayer = Player(self.screen.get_width() / 2, (self.screen.get_height() / 8) * 7, 20, 60, (255,0,0))
+        self.myPlayer = Player(self.screen.get_width() / 2, (self.screen.get_height() / 20) * 19, 8, 80, (255,255,255))
+        self.myBall = Ball(400, 400, 10, (255,255,0))
         
 
     def update(self):
@@ -48,10 +50,13 @@ class Game:
 
         #Printing Object
         self.cleanScreen()
+
         self.myPlayer.print(self.screen)
+        self.myBall.print(self.screen)
 
         #Moving Objects
-        self.myPlayer.move(self.keys)
+        self.myPlayer.move(self.keys, self.screen)
+        self.myBall.move(self.screen, self.myPlayer)
 
         #Updating Game
         pygame.display.update()

@@ -9,3 +9,6 @@
 
 **v0.2:**
     - El jugador ya puede moverse lateralmente con "a" y "d"
+
+**v0.3:**
+    - La pelota se mueve y colisiona con el jugador y los bordes de la pantalla
