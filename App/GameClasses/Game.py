@@ -1,6 +1,7 @@
 import sys
 from GameClasses.Player import Player
 from GameClasses.Ball import Ball
+from GameClasses.Blocks import Blocks
 import pygame
 
 class Game:
@@ -22,6 +23,7 @@ class Game:
         #Objects
         self.myPlayer = Player(self.screen.get_width() / 2, (self.screen.get_height() / 20) * 19, 8, 80, (255,255,255))
         self.myBall = Ball(400, 400, 10, (255,255,0))
+        self.myBlocks = Blocks(5, 4, self.screen)
         
 
     def update(self):
