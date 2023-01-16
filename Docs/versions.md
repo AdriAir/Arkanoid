@@ -12,3 +12,10 @@
 
 **v0.3:**
     - La pelota se mueve y colisiona con el jugador y los bordes de la pantalla
+
+**v0.31:**
+    - Creación de Bloque y conjunto de Bloques
+
+**v0.4:**
+    - Creación de filas/columnas lógicas de bloques
+    - Bloques impresos en pantalla con 6 colores diferentes (1 por fila) (Mejorable)

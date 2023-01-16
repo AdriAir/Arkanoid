@@ -11,7 +11,7 @@ class Game:
         pygame.init()
 
         #Variables
-        self.height = 800
+        self.height = 900
         self.width = 800
         self.finish = False
         self.frame_rate = 120
@@ -23,7 +23,7 @@ class Game:
         #Objects
         self.myPlayer = Player(self.screen.get_width() / 2, (self.screen.get_height() / 20) * 19, 8, 80, (255,255,255))
         self.myBall = Ball(400, 400, 10, (255,255,0))
-        self.myBlocks = Blocks(5, 4, self.screen)
+        self.myBlocks = Blocks(11, 6)
         
 
     def update(self):
@@ -35,8 +35,8 @@ class Game:
         #Key Manager
         if self.keys[pygame.K_ESCAPE]:
 
-            print(pygame.K_a,  " ", pygame.K_d)
-            #self.finish = True
+            # print(pygame.K_a,  " ", pygame.K_d)
+            self.finish = True
 
         #Event Manager
         for event in self.events:
@@ -53,6 +53,7 @@ class Game:
         #Printing Object
         self.cleanScreen()
 
+        self.myBlocks.print(self.screen)
         self.myPlayer.print(self.screen)
         self.myBall.print(self.screen)
 

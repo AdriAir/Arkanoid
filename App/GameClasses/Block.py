@@ -2,17 +2,18 @@ import random
 from pygame import Surface
 from pygame import draw
 
+
 class Block:
 
-    def __init__(self, X:float, Y:float):
+    def __init__(self, X: float, Y: float, height: int, width: int, color:int):
 
-        self.color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        self.color = color
         self.X = X
         self.Y = Y
-        self.width = 60
-        self.height = 20
-        self.rectangle = [X, Y, self.width, self.height]
+        self.width = width
+        self.height = height
+        self.rectangle = [self.X, self.Y, self.width, self.height]
 
-    def print(self, screen:Surface):
+    def print(self, screen: Surface):
 
         draw.rect(screen, self.color, self.rectangle)
