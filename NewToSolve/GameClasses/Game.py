@@ -59,7 +59,7 @@ class Game:
 
         #Moving Objects
         self.myPlayer.move(self.keys, self.screen)
-        self.myBall.move(self.screen, self.myPlayer, self.myBlocks)
+        self.myBall.move(self.screen, self.myPlayer)
 
         #Updating Game
         pygame.display.update()
