@@ -19,3 +19,6 @@
 **v0.4:**
     - Creación de filas/columnas lógicas de bloques
     - Bloques impresos en pantalla con 6 colores diferentes (1 por fila) (Mejorable)
+**v0.5:**
+    - Refactorización del código
+    - Mejor encapsulamiento de clases
