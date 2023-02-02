@@ -11,7 +11,7 @@ class Game:
         pygame.init()
 
         #Variables
-        self.height = 900
+        self.height = 800
         self.width = 800
         self.finish = False
         self.frame_rate = 120
