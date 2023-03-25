@@ -23,8 +23,8 @@ public class BrickLine implements GlobalActions {
 
         for (int i = 0; i < bricks; i++) {
 
-            this.brickLine.add(new Brick(this.pos, this.size, this.color));
-            this.pos.x += this.size.x + 1;
+            this.brickLine.add(new Brick(new Vector2(this.pos.x, this.pos.y), new Vector2(this.size.x, this.size.y), this.color));
+            this.pos.x += this.size.x + 2;
 
         }
 
@@ -52,4 +52,18 @@ public class BrickLine implements GlobalActions {
         }
 
     }
+    public void collideBall(Ball ball){
+
+        for (int i = 0; i < this.brickLine.size(); i++){
+
+            if (this.brickLine.get(i).collideBall(ball)){
+
+                this.brickLine.remove(i);
+
+            }
+
+        }
+
+    }
+
 }

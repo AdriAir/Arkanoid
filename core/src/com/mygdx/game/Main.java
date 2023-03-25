@@ -18,9 +18,9 @@ public class Main extends ApplicationAdapter {
     final Color PLAYER_COLOR = new Color(1, 1, 1, 1);
     final float BALL_RADIUS = 10f;
     final Vector2 BALL_POSITION = new Vector2(this.WINDOW_SIZE.x / 2 - this.BALL_RADIUS / 2, this.WINDOW_SIZE.y / 2 - this.BALL_RADIUS / 2);
-    final Vector2 BALL_VELOCITY = new Vector2(8, 8);
+    final Vector2 BALL_VELOCITY = new Vector2(6, 6);
     final Color BALL_COLOR = new Color(1, 1, 1, 1);
-    final Vector2 BRICK_NUMBER = new Vector2(3, 10);
+    final Vector2 BRICK_NUMBER = new Vector2(5, 9);
     final Vector2 BRICK_SIZE = new Vector2(50, 15);
     final Vector2 BRICK_POSITION = new Vector2(15, this.WINDOW_SIZE.y - 50);
     final Color BRICK_COLOR = new Color(1, 1, 1, 1);
@@ -38,6 +38,7 @@ public class Main extends ApplicationAdapter {
 
         //WINDOW
         Gdx.graphics.setWindowedMode((int) this.WINDOW_SIZE.x, (int) this.WINDOW_SIZE.y);
+        Gdx.graphics.setResizable(false);
 
         //OBJECT INNIT
         this.ball = new Ball(this.BALL_POSITION.x, this.BALL_POSITION.y, this.BALL_VELOCITY.x, this.BALL_VELOCITY.y, this.BALL_RADIUS, this.BALL_COLOR);
@@ -66,6 +67,7 @@ public class Main extends ApplicationAdapter {
 
         //BRICKS
         this.bricks.render();
+        this.bricks.collideBall(this.ball);
 
 
         //KEY_LISTENER
