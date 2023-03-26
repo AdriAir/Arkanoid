@@ -67,11 +67,11 @@ public class Brick implements GlobalActions {
         this.collider = collider;
     }
 
-    public boolean collideBall(Ball ball){
+    public boolean collideBall(Ball ball) {
 
-        if (ball.getCollider().intersects(this.getCollider())){
+        if (ball.getCollider().intersects(this.getCollider())) {
 
-            ball.setVel(new Vector2(-ball.getVel().x, -ball.getVel().y));
+            ball.setVel(new Vector2(ball.getVel().x * -1, ball.getVel().y * -1));
             return true;
 
         } else {
