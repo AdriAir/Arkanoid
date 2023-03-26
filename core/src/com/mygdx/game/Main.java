@@ -13,17 +13,17 @@ public class Main extends ApplicationAdapter {
     final Vector2 WINDOW_SIZE = new Vector2(500, 800);
 
     final Vector2 PLAYER_SIZE = new Vector2(50, 10);
-    final Vector2 PLAYER_POSITION = new Vector2(this.WINDOW_SIZE.x / 2 - this.PLAYER_SIZE.x / 2, 15);
+    final Vector2 PLAYER_POSITION = new Vector2(this.WINDOW_SIZE.x / 2 - this.PLAYER_SIZE.x / 2, 25);
     final Vector2 PLAYER_VELOCITY = new Vector2(8, 8);
-    final Color PLAYER_COLOR = new Color(1, 1, 1, 1);
+    final Color PLAYER_COLOR = new Color(1, 0, 1, 1);
     final float BALL_RADIUS = 10f;
-    final Vector2 BALL_POSITION = new Vector2(this.WINDOW_SIZE.x / 2 - this.BALL_RADIUS / 2, this.WINDOW_SIZE.y / 2 - this.BALL_RADIUS / 2);
-    final Vector2 BALL_VELOCITY = new Vector2(6, 6);
-    final Color BALL_COLOR = new Color(1, 1, 1, 1);
+    final Vector2 BALL_POSITION = new Vector2(this.WINDOW_SIZE.x / 2 - this.BALL_RADIUS / 2, 500);
+    final Vector2 BALL_VELOCITY = new Vector2(3, 3);
+    final Color BALL_COLOR = new Color(0, 1, 1, 1);
     final Vector2 BRICK_NUMBER = new Vector2(5, 9);
     final Vector2 BRICK_SIZE = new Vector2(50, 15);
     final Vector2 BRICK_POSITION = new Vector2(15, this.WINDOW_SIZE.y - 50);
-    final Color BRICK_COLOR = new Color(1, 1, 1, 1);
+    final Color BRICK_COLOR = new Color(1, 1, 0, 1);
 
     //VARIABLES
 

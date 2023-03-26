@@ -24,13 +24,13 @@ public class Ball implements GlobalActions {
         this.radius = radius;
         this.body = new ShapeRenderer();
         this.body.setColor(color);
-        this.collider = new Ellipse2D.Double(this.pos.x, this.pos.y, this.radius * 2, this.radius * 2);
+        this.collider = new Ellipse2D.Double(this.pos.x - this.radius, this.pos.y - this.radius, this.radius * 2, this.radius * 2);
 
         //Asignamos el primer ángulo aleatorio entre 225 y 315 grados
         this.angle = Math.toRadians((int) (Math.random() * (315 - 225) + 225));
 
         //Generamos las dX y dY usando el ángulo y la velocidad;
-        this.direction = new Vector2();
+        this.direction = new Vector2((float) (Math.cos(angle) * this.vel.x), (float) (Math.sin(angle) * this.vel.y));
 
     }
 
@@ -83,6 +83,22 @@ public class Ball implements GlobalActions {
         this.collider = collider;
     }
 
+    public Vector2 getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Vector2 direction) {
+        this.direction = direction;
+    }
+
+    public double getAngle() {
+        return angle;
+    }
+
+    public void setAngle(double angle) {
+        this.angle = angle;
+    }
+
     public void move() {
 
         //Moverse en X y en Y en una dirección a una velocidad
@@ -90,7 +106,7 @@ public class Ball implements GlobalActions {
         this.pos.y += this.direction.y * this.vel.y;
 
         //Desplazar collider
-        this.collider.setFrame(this.pos.x, this.pos.y, this.radius / 2, this.radius / 2);
+        this.collider.setFrame(this.pos.x - this.radius, this.pos.y - this.radius, this.radius*2, this.radius*2);
 
     }
 
@@ -112,8 +128,12 @@ public class Ball implements GlobalActions {
 
         // Comprobamos si la pelota choca con el borde inferior
         if (this.pos.y - this.radius <= 0) {
+
+            //PIERDE
             collision = 3;
-            this.direction.y *= -1;
+            vel.set(new Vector2(0,0));
+            pos.y = 0 + this.radius;
+            //this.direction.y *= -1;
         }
 
         // Comprobamos si la pelota choca con el borde superior
@@ -132,6 +152,9 @@ public class Ball implements GlobalActions {
 
             //Choca con el jugador
             //Recalcular dirección
+
+            this.direction.y *= -1;
+
             return true;
 
         }

@@ -71,7 +71,8 @@ public class Brick implements GlobalActions {
 
         if (ball.getCollider().intersects(this.getCollider())) {
 
-            ball.setVel(new Vector2(ball.getVel().x * -1, ball.getVel().y * -1));
+            ball.setVel(new Vector2(ball.getVel().x * 1, ball.getVel().y * -1));
+
             return true;
 
         } else {
