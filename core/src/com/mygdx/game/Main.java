@@ -23,7 +23,6 @@ public class Main extends ApplicationAdapter {
     final Vector2 BRICK_NUMBER = new Vector2(7, 8);
     final Vector2 BRICK_SIZE = new Vector2(50, 15);
     final Vector2 BRICK_POSITION = new Vector2(25, this.WINDOW_SIZE.y - 50);
-    final Color BRICK_COLOR = new Color((float) Math.random(), (float) Math.random(), (float) Math.random(), 1);
 
     //VARIABLES
 
@@ -43,7 +42,7 @@ public class Main extends ApplicationAdapter {
         //OBJECT INNIT
         this.ball = new Ball(this.BALL_POSITION.x, this.BALL_POSITION.y, this.BALL_VELOCITY.x, this.BALL_VELOCITY.y, this.BALL_RADIUS, this.BALL_COLOR);
         this.player = new Player(this.PLAYER_POSITION.x, this.PLAYER_POSITION.y, 0, 0, this.PLAYER_SIZE.x, this.PLAYER_SIZE.y, this.PLAYER_COLOR);
-        this.bricks = new BrickGroup(this.BRICK_NUMBER, this.BRICK_POSITION, this.BRICK_SIZE, this.BRICK_COLOR);
+        this.bricks = new BrickGroup(this.BRICK_NUMBER, this.BRICK_POSITION, this.BRICK_SIZE);
 
 
     }

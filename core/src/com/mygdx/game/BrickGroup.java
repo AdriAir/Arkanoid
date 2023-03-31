@@ -1,7 +1,6 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.ArrayList;
@@ -11,13 +10,11 @@ public class BrickGroup implements GlobalActions {
     private ArrayList<BrickLine> brickGroup;
     private Vector2 pos;
     private Vector2 size;
-    private Color color;
 
-    BrickGroup(Vector2 table, Vector2 pos, Vector2 size, Color color) {
+    BrickGroup(Vector2 table, Vector2 pos, Vector2 size) {
 
         this.pos = pos;
         this.size = size;
-        this.color = color;
 
         this.brickGroup = new ArrayList<>();
 
