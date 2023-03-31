@@ -23,7 +23,17 @@ public class BrickGroup implements GlobalActions {
 
         for (int i = 0; i < table.x; i++) {
 
-            this.brickGroup.add(new BrickLine((int) table.y, new Vector2(this.pos.x, this.pos.y), new Vector2(this.size.x, this.size.y), this.color));
+            if (i % 2 == 0) {
+
+                this.pos.x += this.size.x / 2;
+
+            } else {
+
+                this.pos.x -= this.size.x / 2;
+
+            }
+
+            this.brickGroup.add(new BrickLine((int) table.y, new Vector2(this.pos.x, this.pos.y), new Vector2(this.size.x, this.size.y)));
             this.pos.y -= this.size.y + 2;
 
         }
@@ -52,9 +62,9 @@ public class BrickGroup implements GlobalActions {
 
     }
 
-    public void collideBall(Ball ball){
+    public void collideBall(Ball ball) {
 
-        for (int i = 0; i < this.brickGroup.size(); i++){
+        for (int i = 0; i < this.brickGroup.size(); i++) {
 
             this.brickGroup.get(i).collideBall(ball);
 

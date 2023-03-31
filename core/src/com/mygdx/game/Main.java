@@ -15,15 +15,15 @@ public class Main extends ApplicationAdapter {
     final Vector2 PLAYER_SIZE = new Vector2(50, 10);
     final Vector2 PLAYER_POSITION = new Vector2(this.WINDOW_SIZE.x / 2 - this.PLAYER_SIZE.x / 2, 25);
     final Vector2 PLAYER_VELOCITY = new Vector2(6f, 0f);
-    final Color PLAYER_COLOR = new Color(1, 0, 1, 1);
+    final Color PLAYER_COLOR = new Color((float) Math.random(), (float) Math.random(), (float) Math.random(), 1);
     final float BALL_RADIUS = 10f;
     final Vector2 BALL_POSITION = new Vector2(this.WINDOW_SIZE.x / 2 - this.BALL_RADIUS / 2, 500);
-    final Vector2 BALL_VELOCITY = new Vector2(2f, 2f);
-    final Color BALL_COLOR = new Color(0, 1, 1, 1);
-    final Vector2 BRICK_NUMBER = new Vector2(5, 9);
+    final Vector2 BALL_VELOCITY = new Vector2(2.5f, 2.5f);
+    final Color BALL_COLOR = new Color((float) Math.random(), (float) Math.random(), (float) Math.random(), 1);
+    final Vector2 BRICK_NUMBER = new Vector2(7, 8);
     final Vector2 BRICK_SIZE = new Vector2(50, 15);
-    final Vector2 BRICK_POSITION = new Vector2(15, this.WINDOW_SIZE.y - 50);
-    final Color BRICK_COLOR = new Color(1, 1, 0, 1);
+    final Vector2 BRICK_POSITION = new Vector2(25, this.WINDOW_SIZE.y - 50);
+    final Color BRICK_COLOR = new Color((float) Math.random(), (float) Math.random(), (float) Math.random(), 1);
 
     //VARIABLES
 
@@ -55,22 +55,19 @@ public class Main extends ApplicationAdapter {
         ScreenUtils.clear(0f, 0f, 0f, 1f);
 
         //PLAYER
-        this.player.render();
         this.player.move();
         this.player.wallCollide(this.WINDOW_SIZE);
+        this.player.render();
 
         //BALL
-
         this.ball.move();
         this.ball.wallCollide(this.WINDOW_SIZE);
         this.ball.playerCollide(this.player);
-
         this.ball.render();
 
         //BRICKS
-        this.bricks.render();
         this.bricks.collideBall(this.ball);
-
+        this.bricks.render();
 
         //KEY_LISTENER
         if (Gdx.input.isKeyPressed(Input.Keys.A)) {

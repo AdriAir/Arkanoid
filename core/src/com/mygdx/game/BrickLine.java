@@ -11,19 +11,17 @@ public class BrickLine implements GlobalActions {
     private ArrayList<Brick> brickLine;
     private Vector2 pos;
     private Vector2 size;
-    private Color color;
 
-    BrickLine(int bricks, Vector2 pos, Vector2 size, Color color) {
+    BrickLine(int bricks, Vector2 pos, Vector2 size) {
 
         this.pos = pos;
         this.size = size;
-        this.color = color;
 
         this.brickLine = new ArrayList<>();
 
         for (int i = 0; i < bricks; i++) {
 
-            this.brickLine.add(new Brick(new Vector2(this.pos.x, this.pos.y), new Vector2(this.size.x, this.size.y), this.color));
+            this.brickLine.add(new Brick(new Vector2(this.pos.x, this.pos.y), new Vector2(this.size.x, this.size.y)));
             this.pos.x += this.size.x + 2;
 
         }

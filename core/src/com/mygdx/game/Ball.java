@@ -25,7 +25,7 @@ public class Ball implements GlobalActions {
         this.pos = new Vector2(posX, posY);
         this.body = new ShapeRenderer();
         this.body.setColor(color);
-        this.collider = new Ellipse2D.Double(this.pos.x, this.pos.y, this.radius, this.radius);
+        this.collider = new Ellipse2D.Double(this.pos.x, this.pos.y, this.radius * 2, this.radius * 2);
 
         //Asignamos el primer ángulo aleatorio entre 225 y 315 grados
         do {
@@ -110,7 +110,7 @@ public class Ball implements GlobalActions {
         this.pos.y += this.direction.y * this.vel.y;
 
         //Desplazar collider
-        this.collider.setFrame(this.pos.x, this.pos.y, this.radius, this.radius);
+        this.collider.setFrame(this.pos.x, this.pos.y, this.radius * 2, this.radius * 2);
 
     }
 
@@ -155,25 +155,29 @@ public class Ball implements GlobalActions {
         boolean xCollision = true;
         boolean yCollision = true;
 
-
-        if (this.pos.x - this.radius > player.getPos().x + player.getSize().x) {
-
-            xCollision = false;
-
-        }
-        if (this.pos.x + this.radius < player.getPos().x) {
+        //DESDE LA DERECHA DEL PLAYER
+        if (this.pos.x - this.radius + 2 > player.getPos().x + player.getSize().x) {
 
             xCollision = false;
 
         }
 
+        //DESDE LA IZQUIERDA DEL PLAYER
+        if (this.pos.x + this.radius - 2 < player.getPos().x) {
 
-        if (this.pos.y - this.radius > player.getPos().y + player.getSize().y) {
+            xCollision = false;
+
+        }
+
+        //DESDE ARRIBA DEL PLAYER
+        if (this.pos.y - this.radius + 2 > player.getPos().y + player.getSize().y) {
 
             yCollision = false;
 
         }
-        if (this.pos.y + this.radius < player.getPos().y) {
+
+        //DESDE ABAJO DEL PLAYER
+        if (this.pos.y + this.radius - 2 < player.getPos().y) {
 
             yCollision = false;
 
@@ -182,8 +186,15 @@ public class Ball implements GlobalActions {
 
         if (xCollision & yCollision) {
 
-            this.direction.y *= -1;
+            if (this.pos.y - this.radius <= player.getPos().y + 2) {
 
+                this.direction.x *= -1;
+
+            } else {
+
+                this.direction.y *= -1;
+
+            }
         }
 
         return xCollision & yCollision;

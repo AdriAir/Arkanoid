@@ -26,7 +26,7 @@ public class Player extends Actor implements GlobalActions{
         this.radius = 5f;
         this.body = new ShapeRenderer();
         this.body.setColor(color);
-        this.collider = new Rectangle2D.Double(this.pos.x, this.pos.y, this.size.x, 3);
+        this.collider = new Rectangle2D.Double(this.pos.x, this.pos.y, this.size.x, this.size.y);
 
     }
 
