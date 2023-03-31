@@ -19,15 +19,19 @@ public class Ball implements GlobalActions {
 
     public Ball(float posX, float posY, float velX, float velY, float radius, Color color) {
 
-        this.pos = new Vector2(posX, posY);
+
         this.vel = new Vector2(velX, velY);
         this.radius = radius;
+        this.pos = new Vector2(posX, posY);
         this.body = new ShapeRenderer();
         this.body.setColor(color);
-        this.collider = new Ellipse2D.Double(this.pos.x - this.radius, this.pos.y - this.radius, this.radius * 2, this.radius * 2);
+        this.collider = new Ellipse2D.Double(this.pos.x, this.pos.y, this.radius, this.radius);
 
         //Asignamos el primer ángulo aleatorio entre 225 y 315 grados
-        this.angle = Math.toRadians((int) (Math.random() * (315 - 225) + 225));
+        do {
+            this.angle = Math.toRadians((int) (Math.random() * (315 - 225) + 225));
+        } while (this.angle >= Math.toRadians(250) && this.angle <= Math.toRadians(290));
+
 
         //Generamos las dX y dY usando el ángulo y la velocidad;
         this.direction = new Vector2((float) (Math.cos(angle) * this.vel.x), (float) (Math.sin(angle) * this.vel.y));
@@ -106,7 +110,7 @@ public class Ball implements GlobalActions {
         this.pos.y += this.direction.y * this.vel.y;
 
         //Desplazar collider
-        this.collider.setFrame(this.pos.x - this.radius, this.pos.y - this.radius, this.radius*2, this.radius*2);
+        this.collider.setFrame(this.pos.x, this.pos.y, this.radius, this.radius);
 
     }
 
@@ -131,7 +135,7 @@ public class Ball implements GlobalActions {
 
             //PIERDE
             collision = 3;
-            vel.set(new Vector2(0,0));
+            vel.set(new Vector2(0, 0));
             pos.y = 0 + this.radius;
             //this.direction.y *= -1;
         }
@@ -148,18 +152,41 @@ public class Ball implements GlobalActions {
 
     public boolean playerCollide(Player player) {
 
-        if (this.collider.intersects(player.getCollider())) {
+        boolean xCollision = true;
+        boolean yCollision = true;
 
-            //Choca con el jugador
-            //Recalcular dirección
 
-            this.direction.y *= -1;
+        if (this.pos.x - this.radius > player.getPos().x + player.getSize().x) {
 
-            return true;
+            xCollision = false;
+
+        }
+        if (this.pos.x + this.radius < player.getPos().x) {
+
+            xCollision = false;
 
         }
 
-        return false;
+
+        if (this.pos.y - this.radius > player.getPos().y + player.getSize().y) {
+
+            yCollision = false;
+
+        }
+        if (this.pos.y + this.radius < player.getPos().y) {
+
+            yCollision = false;
+
+        }
+
+
+        if (xCollision & yCollision) {
+
+            this.direction.y *= -1;
+
+        }
+
+        return xCollision & yCollision;
 
     }
 

@@ -14,11 +14,11 @@ public class Main extends ApplicationAdapter {
 
     final Vector2 PLAYER_SIZE = new Vector2(50, 10);
     final Vector2 PLAYER_POSITION = new Vector2(this.WINDOW_SIZE.x / 2 - this.PLAYER_SIZE.x / 2, 25);
-    final Vector2 PLAYER_VELOCITY = new Vector2(8, 8);
+    final Vector2 PLAYER_VELOCITY = new Vector2(6f, 0f);
     final Color PLAYER_COLOR = new Color(1, 0, 1, 1);
     final float BALL_RADIUS = 10f;
     final Vector2 BALL_POSITION = new Vector2(this.WINDOW_SIZE.x / 2 - this.BALL_RADIUS / 2, 500);
-    final Vector2 BALL_VELOCITY = new Vector2(3, 3);
+    final Vector2 BALL_VELOCITY = new Vector2(2f, 2f);
     final Color BALL_COLOR = new Color(0, 1, 1, 1);
     final Vector2 BRICK_NUMBER = new Vector2(5, 9);
     final Vector2 BRICK_SIZE = new Vector2(50, 15);
@@ -60,10 +60,12 @@ public class Main extends ApplicationAdapter {
         this.player.wallCollide(this.WINDOW_SIZE);
 
         //BALL
-        this.ball.render();
+
         this.ball.move();
         this.ball.wallCollide(this.WINDOW_SIZE);
         this.ball.playerCollide(this.player);
+
+        this.ball.render();
 
         //BRICKS
         this.bricks.render();
