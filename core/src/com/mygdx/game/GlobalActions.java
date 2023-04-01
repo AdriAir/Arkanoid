@@ -2,7 +2,7 @@ package com.mygdx.game;
 
 public interface GlobalActions {
 
-    public void dispose();
-    public void render();
+    void dispose();
+    void render();
 
 }
