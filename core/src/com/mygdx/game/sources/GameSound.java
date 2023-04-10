@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package com.mygdx.game.sources;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
@@ -8,7 +8,7 @@ public class GameSound {
     private String soundPath;
     private Sound sound;
 
-    GameSound(String soundPath){
+    public GameSound(String soundPath){
 
         this.soundPath = soundPath;
         this.sound = Gdx.audio.newSound(Gdx.files.internal(this.soundPath));
