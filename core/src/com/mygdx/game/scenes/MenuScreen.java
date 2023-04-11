@@ -36,7 +36,7 @@ public class MenuScreen extends BaseScreen {
         this.title = new Label("ARKANOID", this.skin);
 
         //Styles
-        this.title.setSize(200, 50);
+        this.title.setSize(200, 70);
         this.title.setPosition(GameConfig.WINDOW_SIZE_IN_PIXEL.x / 2 - this.title.getWidth() / 2, GameConfig.WINDOW_SIZE_IN_PIXEL.y / 2 + this.title.getHeight() * 5);
         this.title.setAlignment(1);
 
