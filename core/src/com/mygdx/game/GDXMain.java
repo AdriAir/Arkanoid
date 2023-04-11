@@ -7,11 +7,7 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.config.GameConfig;
-import com.mygdx.game.scenes.BaseScreen;
-import com.mygdx.game.scenes.GameOverScreen;
-import com.mygdx.game.scenes.InGameScreen;
-import com.mygdx.game.scenes.LoadingScreen;
-import com.mygdx.game.scenes.MenuScreen;
+import com.mygdx.game.scenes.*;
 
 public class GDXMain extends Game {
 
