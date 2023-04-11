@@ -10,7 +10,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FillViewport;
-import com.mygdx.game.Main;
+import com.mygdx.game.GDXMain;
 import com.mygdx.game.actors.Player;
 import com.mygdx.game.config.GameConfig;
 import com.mygdx.game.sources.GameContactListener;
@@ -26,7 +26,7 @@ public class InGameScreen extends BaseScreen {
     private Music backGroundMusic;
     private Vector3 cameraPosition;
 
-    public InGameScreen(Main game) {
+    public InGameScreen(GDXMain game) {
 
         super(game);
 

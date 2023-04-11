@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.FillViewport;
-import com.mygdx.game.Main;
+import com.mygdx.game.GDXMain;
 import com.mygdx.game.config.GameConfig;
 
 public class MenuScreen extends BaseScreen {
@@ -20,7 +20,7 @@ public class MenuScreen extends BaseScreen {
 
     private Label title;
 
-    public MenuScreen(Main game) {
+    public MenuScreen(GDXMain game) {
         super(game);
 
         //Skins and Camera

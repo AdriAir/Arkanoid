@@ -1,10 +1,10 @@
 package com.mygdx.game.scenes;
 
-import com.mygdx.game.Main;
+import com.mygdx.game.GDXMain;
 import com.mygdx.game.scenes.BaseScreen;
 
 public class GameOverScreen extends BaseScreen {
-    public GameOverScreen(Main game) {
+    public GameOverScreen(GDXMain game) {
         super(game);
     }
 }

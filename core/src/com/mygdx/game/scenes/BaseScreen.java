@@ -1,13 +1,13 @@
 package com.mygdx.game.scenes;
 
 import com.badlogic.gdx.Screen;
-import com.mygdx.game.Main;
+import com.mygdx.game.GDXMain;
 
 public abstract class BaseScreen implements Screen {
 
-    protected Main game;
+    protected GDXMain game;
 
-    public BaseScreen(Main game) {
+    public BaseScreen(GDXMain game) {
 
         this.game = game;
 
