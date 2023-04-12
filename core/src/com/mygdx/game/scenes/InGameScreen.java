@@ -14,6 +14,7 @@ import com.mygdx.game.GDXMain;
 import com.mygdx.game.actors.Ball;
 import com.mygdx.game.actors.BrickGroup;
 import com.mygdx.game.actors.Player;
+import com.mygdx.game.config.BallConfig;
 import com.mygdx.game.config.BrickConfig;
 import com.mygdx.game.config.GameConfig;
 import com.mygdx.game.config.PlayerConfig;
@@ -59,17 +60,19 @@ public class InGameScreen extends BaseScreen {
         this.player = new Player(this.world, super.game.getAssets().get("Textures/player.png", Texture.class), PlayerConfig.POSITION_IN_METER);
         this.bricks = new BrickGroup(BrickConfig.NUMBER_OF_ROWS, BrickConfig.BRICKS_PER_ROW, this.world,
                 super.game.getAssets().get("Textures/brick.png", Texture.class), BrickConfig.POSITION_IN_METER);
+        this.ball = new Ball(this.world, super.game.getAssets().get("Textures/ball.png", Texture.class), BallConfig.POSITION_IN_METER);
 
         //Adding Actors
         this.stage.addActor(this.player);
         this.stage.addActor(this.bricks);
+        this.stage.addActor(this.ball);
 
         //Camera Settings
         this.stage.getCamera().position.set(this.cameraPosition);
         this.stage.getCamera().update();
 
         //Play Music
-        this.backGroundMusic.setVolume(0.02f);
+        this.backGroundMusic.setVolume(0.1f);
         this.backGroundMusic.play();
 
     }
@@ -80,6 +83,7 @@ public class InGameScreen extends BaseScreen {
         this.stage.clear();
         this.player.dispose();
         this.bricks.dispose();
+        this.ball.dispose();
 
     }
 
@@ -93,6 +97,7 @@ public class InGameScreen extends BaseScreen {
         this.stage.act();
         this.player.act(delta);
         this.bricks.act(delta);
+        this.ball.act(delta);
 
         //Updating World
         this.world.step(delta, 6, 2);
