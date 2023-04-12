@@ -10,5 +10,6 @@ public class GameConfig {
     public static final boolean WINDOW_RESIZABLE = false;
     public static final String WINDOW_TITLE = "LibGDX: Arkanoid";
     public static final float PIXELS_IN_A_METER = 45f;
+    public static final Vector2 SCORE_POSITION_IN_PIXEL = new Vector2(10, GameConfig.WINDOW_SIZE_IN_PIXEL.y - 10);
 
 }

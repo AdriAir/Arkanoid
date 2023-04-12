@@ -11,8 +11,12 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.mygdx.game.GDXMain;
+import com.mygdx.game.actors.Ball;
+import com.mygdx.game.actors.BrickGroup;
 import com.mygdx.game.actors.Player;
+import com.mygdx.game.config.BrickConfig;
 import com.mygdx.game.config.GameConfig;
+import com.mygdx.game.config.PlayerConfig;
 import com.mygdx.game.sources.GameContactListener;
 
 public class InGameScreen extends BaseScreen {
@@ -20,6 +24,8 @@ public class InGameScreen extends BaseScreen {
     private Stage stage;
     private World world;
     private Player player;
+    private Ball ball;
+    private BrickGroup bricks;
     private Sound edgeHitSound;
     private Sound scoreSound;
     private Sound gameOverSound;
@@ -50,10 +56,13 @@ public class InGameScreen extends BaseScreen {
     public void show() {
 
         //Creating Actors
-        this.player = new Player(this.world, super.game.getAssets().get("Textures/player.png", Texture.class), new Vector2(2f, 10f));
+        this.player = new Player(this.world, super.game.getAssets().get("Textures/player.png", Texture.class), PlayerConfig.POSITION_IN_METER);
+        this.bricks = new BrickGroup(BrickConfig.NUMBER_OF_ROWS, BrickConfig.BRICKS_PER_ROW, this.world,
+                super.game.getAssets().get("Textures/brick.png", Texture.class), BrickConfig.POSITION_IN_METER);
 
         //Adding Actors
         this.stage.addActor(this.player);
+        this.stage.addActor(this.bricks);
 
         //Camera Settings
         this.stage.getCamera().position.set(this.cameraPosition);
@@ -70,6 +79,7 @@ public class InGameScreen extends BaseScreen {
 
         this.stage.clear();
         this.player.dispose();
+        this.bricks.dispose();
 
     }
 
@@ -82,6 +92,7 @@ public class InGameScreen extends BaseScreen {
         // Updating Stage and Actors
         this.stage.act();
         this.player.act(delta);
+        this.bricks.act(delta);
 
         //Updating World
         this.world.step(delta, 6, 2);

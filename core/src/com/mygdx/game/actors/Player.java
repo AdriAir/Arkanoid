@@ -41,7 +41,7 @@ public class Player extends Actor {
         //Setting Size
         this.setSize(PlayerConfig.SIZE_IN_METER.x, PlayerConfig.SIZE_IN_METER.y);
         //Setting Starting Pos
-        setPosition(PlayerConfig.POSITION_IN_METER.x, PlayerConfig.POSITION_IN_METER.y);
+        setPosition(position.x, position.y);
 
 
     }
@@ -60,11 +60,11 @@ public class Player extends Actor {
         super.act(delta);
 
         //Movement
-        if (Gdx.input.isKeyPressed(Input.Keys.D) && !this.wallCollide()) {
+        if (Gdx.input.isKeyPressed(Input.Keys.D) && this.wallCollide()) {
 
             this.body.setLinearVelocity(PlayerConfig.VELOCITY_IN_PIXEL.x / GameConfig.PIXELS_IN_A_METER, PlayerConfig.VELOCITY_IN_PIXEL.y / GameConfig.PIXELS_IN_A_METER);
 
-        } else if (Gdx.input.isKeyPressed(Input.Keys.A) && !this.wallCollide()) {
+        } else if (Gdx.input.isKeyPressed(Input.Keys.A) && this.wallCollide()) {
 
             this.body.setLinearVelocity(-PlayerConfig.VELOCITY_IN_PIXEL.x / GameConfig.PIXELS_IN_A_METER, PlayerConfig.VELOCITY_IN_PIXEL.y / GameConfig.PIXELS_IN_A_METER);
 
@@ -88,15 +88,15 @@ public class Player extends Actor {
         if (this.getX() + this.getWidth() > GameConfig.WORLD_SIZE_IN_METER.x) {
 
             this.setX(GameConfig.WORLD_SIZE_IN_METER.x - this.getWidth());
-            return true;
+            return false;
 
         } else if (this.getX() < 0) {
 
             this.setX(0);
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     public void kill() {

@@ -34,6 +34,8 @@ public class GDXMain extends Game {
 		assets.load("Sounds/gameOverSound.ogg", Sound.class);
 		assets.load("Music/Arcade Dwellers.ogg", Music.class);
 		assets.load("Textures/player.png", Texture.class);
+		assets.load("Textures/brick.png", Texture.class);
+		assets.load("Textures/ball.png", Texture.class);
 
 		assets.finishLoading();
 
